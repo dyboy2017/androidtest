@@ -1,29 +1,44 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
+    >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/et_point"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.27"/>
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/input_style"
+            android:singleLine="true"
+            android:hint="请分别输入起点和终点"
+            android:paddingLeft="5dp"
+            />
 
         <Button
             android:id="@+id/btn_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="添加点" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="添加点"
+            android:background="@drawable/btn_blue_radius"
+            android:textColor="#fff"
+            android:layout_marginTop="15dp"/>
 
         <Button
             android:id="@+id/btn_ok"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="路径规划" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="路径规划"
+            android:background="@drawable/btn_blue_radius"
+            android:textColor="#fff"
+            android:layout_marginTop="5dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -35,17 +50,16 @@
             android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="点：" />
-
-        <Button
-            android:id="@+id/btn_reset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="重置数据" />
+            android:text="点："
+            android:textSize="18sp"
+            android:textColor="#fd0000"
+            android:background="@drawable/input_style"
+            android:padding="8dp"/>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             >
 
             <TextView
@@ -56,6 +70,18 @@
                 />
 
         </FrameLayout>
-    </LinearLayout>
 
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="重置数据"
+            android:textColor="#fff"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btn_red_radius"
+            />
+    </LinearLayout>
+        
 </LinearLayout>
+    
+</ScrollView>
