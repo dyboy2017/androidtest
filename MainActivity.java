@@ -70,6 +70,7 @@ public class MainActivity extends Activity {
                 tv_point.setText(path);
                 //禁止按钮
                 btn_ok.setClickable(false);
+                btn_ok.setText("请查看结果！");
             }
         });
 
@@ -80,7 +81,6 @@ public class MainActivity extends Activity {
                 Intent intent = getIntent();
                 finish();
                 startActivity(intent);
-
             }
         });
     }
@@ -138,7 +138,7 @@ public class MainActivity extends Activity {
         Dijkstra2.vertexMap.put("c", v3);
         Dijkstra2.vertexMap.put("d", v4);
         Dijkstra2.vertexMap.put("e", v5);
-        
+
         //返回两点的最短路径
         return Dijkstra2.dijkstra(p1, p2);
     }
