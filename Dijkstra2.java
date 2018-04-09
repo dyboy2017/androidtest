@@ -12,10 +12,10 @@ public class Dijkstra2 {
 
     // 边距
     static class Edge {
-        public Vertex dest;
-        public double cost;
+        public Vertex dest; //下一个点
+        public double cost; //到下一个点的路径长度
 
-        public Edge(Vertex d, double c) {
+        public Edge(Vertex d, double c) {  //构造函数
             this.dest = d;
             this.cost = c;
         }
@@ -23,30 +23,30 @@ public class Dijkstra2 {
     }
 
     // 静态类：Vertex
-    static class Vertex implements Comparable<Vertex> {
-        public String name;
+    static class Vertex implements Comparable<Vertex> {  //继承比较类
+        public String name;  //点的名字 a,b,c,d,e
         public List<Edge> adj;
-        public double dist;
+        public double dist;   //路径长度
         public Vertex prev;
         public int scratch;
-        public boolean visited;
+        public boolean visited;  //访问过的标志
 
-        public Vertex(String nm) {
+        public Vertex(String nm) {  //构造函数
             this.name = nm;
             adj = new ArrayList<Edge>();
             reset();
         }
 
-        public void reset() {
+        public void reset() {  //重置访问标志
             visited = false;
-            dist = Dijkstra2.INFINITY;
+            dist = Dijkstra2.INFINITY;  //距离设置为9999无限大
         }
 
         @Override
-        public int compareTo(Vertex o) {
+        public int compareTo(Vertex o) {  //比较
             double c = o.dist;
 
-            return dist < c ? -1 : dist > c ? 1 : 0;
+            return dist < c ? -1 : dist > c ? 1 : 0;  //dist < c 则取-1，>c则取1，相等为0
         }
 
     }
@@ -84,7 +84,7 @@ public class Dijkstra2 {
                 }
             }
         }
-        System.out.println("hello!");
+
         while (pq.peek() != null) {
             System.out.println(pq.poll());
             return pq.poll().toString();
