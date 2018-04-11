@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <EditText
+            android:id="@+id/edit_input"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/input_style"
+            android:hint="请输入起始点，例如：a"
+            android:singleLine="true"
+            android:paddingLeft="5dp"
+            />
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_blue_radius"
+            android:layout_marginTop="15dp"
+            android:text="添加"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            />
+
+        <Button
+            android:id="@+id/btn_design"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_blue_radius"
+            android:layout_marginTop="15dp"
+            android:text="规划路线"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="运行结果"
+            android:padding="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/input_style"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/test_map"/>
+
+        </FrameLayout>
+
+
+        <Button
+            android:id="@+id/btn_reload"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_red_radius"
+            android:layout_marginTop="15dp"
+            android:text="重置选点"
+            android:textColor="#fff"
+            />
+
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>
