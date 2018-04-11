@@ -14,14 +14,15 @@ public class MainActivity extends AppCompatActivity {
     private EditText ed_input;
     private Button btn_add,btn_design,btn_reload;
     private TextView tv_result;
+    public String path = "";  //最短路径
     private int flag = 0; //判断输入flag
     private char point[] = new char[2];  //点数组
     public int INF = Integer.MAX_VALUE;  //定义INF 为 无穷大
     public int[][] Matrix ={  //邻接矩阵
             {0,45,30,INF,50},
             {45,0,INF,60,INF},
-            {30,INF,0,20,45},
-            {INF,60,20,0,55},
+            {30,INF,0,INF,45},
+            {INF,60,INF,0,55},
             {50,INF,45,55,0}
     };
     public int[][] path_matrix = new int[5][5];
@@ -69,23 +70,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 int length = folyed_length(point[0],point[1]);
-                //getPath(0,3);
 
                 //输出路径
-                String path = " ";
                 int start = (int)point[0]-97;
                 int end = (int)point[1]-97;
                 Toast.makeText(MainActivity.this,Integer.toString(end),Toast.LENGTH_SHORT).show();
-//                for(int m=start;m!=end;m=path_matrix[m][end]){
-//                    path = path +"-->"+ Integer.toString(path_matrix[start][end]);
-//                }
-//                for(int m=0;m<5;m++){
-//                    for (int n=0;n<5;n++){
-//                        path = path +"-->"+ Integer.toString(path_matrix[m][n]);
-//                    }
-//                }
-
-
+                getPath(start,end);
+                path = point[0] + path;
                 tv_result.setText("起点"+ point[0] + "---> 终点" + point[1] + "  的距离为：" + length+"\n最短路径为："+path);
             }
         });
@@ -111,32 +102,26 @@ public class MainActivity extends AppCompatActivity {
         for(int i=0;i<5;i++) {
             for (int j = 0; j < 5; j++) {
                 for (int k = 0; k < 5; k++) {
-                    //System.out.println(Integer.toString(i));
                     if ((Matrix[i][k] < INF && Matrix[k][j] < INF) && (Matrix[i][j] > Matrix[i][k] + Matrix[k][j])) {
                         Matrix[i][j] = Matrix[i][k] + Matrix[k][j];
                         path_matrix[i][j] = k;
-                        System.out.println(Integer.toString(k));
                     }
                 }
             }
         }
-/*
-        for(int m=0;m<4;m++){
-            for (int n=0;n<4;n++){
-                System.out.println("**"+Integer.toString(Matrix[m][n]));
-            }
-            System.out.println("\n");
-        }*/
-/*
-        for(int m=0;m<4;m++){
-            for (int n=0;n<4;n++){
-                System.out.println("**"+Integer.toString(path_matrix[m][n]));
-            }
-            System.out.println("\n");
-        }
-        */
         return Matrix[(int)start_point-97][(int)end_point-97];
     }
 
 
+    public void getPath(int i ,int j){
+        if(i==j) return;
+        if(path_matrix[i][j]==0) {
+            char temp=(char)(97+j);
+            path=path + "-->" +temp;
+        }
+        else{
+            getPath(i,path_matrix[i][j]);
+            getPath(path_matrix[i][j],j);
+        }
+    }
 }
