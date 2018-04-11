@@ -104,9 +104,9 @@ public class MainActivity extends AppCompatActivity {
     //Floyd算法 返回最短路径的长度
     public int floyd_length(char start_point,char end_point){
 
-        for(int i=0;i<5;i++){
-            for(int j=0;j<5;j++){
-                for(int k=0;k<5;k++){
+        for(int i=0;i<len;i++){
+            for(int j=0;j<len;j++){
+                for(int k=0;k<len;k++){
                     if((Matrix[i][k]<INF && Matrix[k][j]<INF) && (Matrix[i][j]>Matrix[i][k]+Matrix[k][j])){
                         Matrix[i][j] = Matrix[i][k]+Matrix[k][j];
                         path_matrix[i][j] = k;
